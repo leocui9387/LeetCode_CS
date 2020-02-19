@@ -15,65 +15,8 @@ namespace Algos
                 Console.WriteLine("String:" + s + "|" + LC03_LongestSubstringNoRepeats.LengthOfLongestSubstring(s));
             }
         }
-        
+              
         public static int LengthOfLongestSubstring(String s)
-        {
-
-            /* 1) Implementation with while loop to make it easier to track location in string
-             * 2) Success!!!
-             *      Runtime: 84 ms, faster than 81.57% of C# online submissions for Longest Substring Without Repeating Characters.
-             *      Memory Usage: 25.5 MB, less than 8.70% of C# online submissions for Longest Substring Without Repeating Characters.
-             * 3) Need to try minimizing the remove portion to speed up algo.
-             */
-            int largest = 0;
-            int beg = 0;
-            int end = 0;
-            
-            Dictionary<Char, int> substr = new Dictionary<char, int>();
-
-            Console.WriteLine("_____________________________________________________");
-            Console.WriteLine("String: " + s);
-            while (s.Length > end )
-            {
-                //build substr
-                while (s.Length > end && !substr.ContainsKey(s[end]) )
-                {
-                    Console.WriteLine("build substr START:"+ beg + "|" + s[beg] + "||END: " + end + " | " + s[end]);
-                    substr.Add(s[end],end);
-                    end++;
-                    //Console.WriteLine("build substr END:" + beg + "|" + s[beg] + "||END: " + end + " | " + s[end]);
-                }
-
-                
-                Console.WriteLine("String Index: " + beg + "|" + end);
-                //check to see if it's longest
-                if (substr.Count > largest)
-                {
-                    Console.WriteLine("largest:" + largest + "|" + substr.Count);
-                    largest = substr.Count;
-                }
-                    
-
-                //clear out anything up to duplicate item
-                while (s.Length > end &&( substr.ContainsKey(s[end]) && (beg <= end)))
-                {
-                    Console.WriteLine("reduce substr START:" + beg + "|" + s[beg]);
-                    substr.Remove(s[beg]);
-                    beg++;
-                    Console.WriteLine("reduce substr END:" + beg + "|" + s[beg]);
-                }
-
-                Console.WriteLine("String Index: " + beg + "|" + end);
-
-                // safety
-                if (end > 1000) { Console.WriteLine("idiot"); break; }
-            }
-            Console.WriteLine("_____________________________________________________");
-
-            return largest;
-        }
-        
-        public static int LengthOfLongestSubstring_forloop(String s)
         {
             /* Notes:
              * This style fails on the super long test where they repeat all available characters.
@@ -113,9 +56,6 @@ namespace Algos
                 Console.WriteLine();
                 substr.Clear();
             }
-
-
-
             return largest;
         }
     }
