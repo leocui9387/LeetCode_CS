@@ -8,8 +8,10 @@ namespace LeetCode_CS
         {
             // LC01 Two Sum
             //LC01_TwoSum.runner();
-            LC02_AddTwoNumbers.runner();  
-
+            //LC02_AddTwoNumbers.runner();  
+            
+            
+            //LC07_ReverseInteger.runner();
 
 
 

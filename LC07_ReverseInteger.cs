@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Algos
+namespace LeetCode_CS
 {
     class LC07_ReverseInteger
     {
