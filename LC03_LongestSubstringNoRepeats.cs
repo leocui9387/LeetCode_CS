@@ -73,50 +73,5 @@ namespace Algos
             return largest;
         }
         
-        public static int LengthOfLongestSubstring_forloop(String s)
-        {
-            /* Notes:
-             * This style fails on the super long test where they repeat all available characters.
-             * Could be salvaged but may need a stack or something to avoid rebuilding the hash table.
-             * */
-            int largest = 0;
-            int j;
-            Dictionary<Char,int> substr = new Dictionary<char, int>();
-            int dup1;
-            int dup2;
-            Console.WriteLine("START String:" + s);
-            for (int i = 0; (i < s.Length) && (s.Length - i > largest); i++)
-            {
-                for (j = i; (j < s.Length) && !substr.ContainsKey(s[j]); j++)
-                {
-                    substr.Add(s[j], j);
-                    Console.WriteLine("Index:" + j + "|letter:" + s[j]);
-                }
-
-                if (j < s.Length)
-                { 
-                    dup2 = j;
-                    Console.WriteLine("dup2:" + dup2);
-                    dup1 = substr[s[dup2]];
-                    Console.WriteLine("dup1:" + dup1);
-                    i = dup1;
-                }
-
-                if (substr.Count > largest)
-                {
-                    largest = substr.Count;
-                }
-
-                Console.Write("substring:");
-                foreach (Char c in substr.Keys)
-                    Console.Write(c);
-                Console.WriteLine();
-                substr.Clear();
-            }
-
-
-
-            return largest;
-        }
     }
 }
