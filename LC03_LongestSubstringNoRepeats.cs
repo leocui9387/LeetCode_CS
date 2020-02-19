@@ -21,7 +21,8 @@ namespace Algos
             /* Notes:
              * This style fails on the super long test where they repeat all available characters.
              * Could be salvaged but may need a stack or something to avoid rebuilding the hash table.
-             * */
+             * Also found for loop structure to be very confusing.
+             */
             int largest = 0;
             int j;
             Dictionary<Char,int> substr = new Dictionary<char, int>();
