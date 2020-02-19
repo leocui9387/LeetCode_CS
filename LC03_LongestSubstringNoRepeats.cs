@@ -23,6 +23,7 @@ namespace Algos
              * 2) Success!!!
              *      Runtime: 84 ms, faster than 81.57% of C# online submissions for Longest Substring Without Repeating Characters.
              *      Memory Usage: 25.5 MB, less than 8.70% of C# online submissions for Longest Substring Without Repeating Characters.
+             * 3) Need to try minimizing the remove portion to speed up algo.
              */
             int largest = 0;
             int beg = 0;
