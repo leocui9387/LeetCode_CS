@@ -47,11 +47,11 @@ namespace LeetCode_CS
             {
                 if( i+1 <s.Length && RNmap[s[i + 1]] > RNmap[s[i]])
                 {
-                    output = output - RNmap[s[i]];
+                    output -= RNmap[s[i]];
                 }
                 else
                 {
-                    output = output + RNmap[s[i]];
+                    output += RNmap[s[i]];
                 }
                 
                 Console.WriteLine("Total:" + output + "|new dig:" + s[i]);
