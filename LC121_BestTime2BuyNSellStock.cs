@@ -8,6 +8,8 @@ namespace LeetCode_CS
     {
         public static void runner()
         {
+
+            /*
             Random rand = new Random();
 
             const int len = 20;
@@ -19,9 +21,11 @@ namespace LeetCode_CS
                 Console.WriteLine("Time:" + i + "|Price:" + price_array[i]);
 
             }
-
+            */
             // make unit test for last item case
-            price_array[price_array.Length-1] = price_array[0];
+            //price_array[price_array.Length-1] = price_array[0];
+
+            int[] price_array = {9,8,7,6,5,4,3,2,1 };   //{ 0,0,0,0,0,0,0,0};
 
             Console.WriteLine("Max Profit:" + LC121_BestTime2BuyNSellStock.MaxProfit(price_array));
 
@@ -29,24 +33,141 @@ namespace LeetCode_CS
 
         public static int MaxProfit(int[] prices)
         {
-            QuickSort<int>(prices, 0, prices.Length - 1);
+            // find max and min
 
-             Lookup<int, int> price_time = prices.ToLookup(price => );
+            Dictionary<int, int> max_price_time = new Dictionary<int, int>();
+            Dictionary<int, int> min_price_time = new Dictionary<int, int>();
+
+
+
+            for (int i = 1; i< prices.Length - 1 ; i++)
+            {
+                if ( (prices[i] - prices[i-1])  (prices[i + 1 ] - prices[i - 1]))
+                {
+
+                }
+            }
+
+
+
+            return 0;
+        }
+
+        public static int MaxProfit_NonCalculus(int[] prices)
+        {
+            // feel old, but also.. Calc 1/2 was jr of high school... so 15 years ago !!!
+
+            Dictionary<int, List<int>> price_time = new Dictionary<int, List<int>>(); //PRICE, TIME 
 
             for (int i = 0; i < prices.Length; i++)
             {
-                price_time.Add(prices[i], i);
+                if (!price_time.ContainsKey(prices[i]))
+                {
+                    price_time.Add(prices[i], new List<int>());
+                }
+                price_time[prices[i]].Add(i);
             }
 
+            // print out price_time
+            foreach(KeyValuePair<int, List<int>> l in price_time){
+                Console.Write("key:" + l.Key + "|List:");
+                l.Value.ForEach(x => Console.Write(x + ","));
+                Console.WriteLine();
+                
+            }
+
+            //Array.Sort(prices);
             
+            QuickSort<int>(prices, 0, prices.Length - 1);
 
 
-            foreach(int i in prices)
+            //QUESTION: Best way to get distinct sorted list from unsorted list with duplicates?
+
+            foreach (int i in prices)
             {
                 Console.WriteLine("Sorted Prices:" +i);
             }
+            
+            int[] dPrices = prices.Distinct<int>().ToArray();
+            //Array.Sort(dPrices);
+            int max = 0;
 
-            return 0;
+
+            /***************
+             * Readable-est. Leverage the work of others... Very slow
+             ***************
+            List<KeyValuePair<int, List<int>>> potentialSales;
+            for(int i = 0; i< dPrices.Length; i++)
+            {
+                potentialSales = price_time.Where(x => (x.Key > dPrices[i]) && (x.Value.Max() > price_time[dPrices[i]].Min()) ).ToList();
+
+                foreach(KeyValuePair<int, List<int>> kvp in potentialSales)
+                {
+                    if(max < (kvp.Key - dPrices[i]))
+                    {
+                        max = (kvp.Key - dPrices[i]);
+                    }
+                }
+
+            }
+            */
+
+
+
+
+
+            /************
+             * LAZY ALGO: Brute force
+             ************
+            //iterate through each buying point
+
+            for(int i = 0; i< dPrices.Length; i++ )
+            {
+                for(int j= dPrices.Length-1; j > i; j--)
+                {
+                    
+                }
+            }
+            */
+
+            /*********
+            BAD ALGO 1: Tried some level of bi-directional bredth first search. Not theoretically sound because .
+            **********
+            int buyIndex = 0;
+            int sellIndex = dPrices.Length - 1;
+
+            //get most opportune time of lowest and highest price
+            int buyTime = price_time[dPrices[buyIndex]].Min();
+            int sellTime = price_time[dPrices[sellIndex]].Max(); 
+
+            while (buyIndex < sellIndex)
+            {
+
+                Console.WriteLine("Buy[Time:" + buyTime + "|Price:" + dPrices[buyIndex] +"]  Sell[Time: "+ sellTime +"|Prices " + dPrices[sellIndex] + "]");
+                if(buyTime < sellTime)
+                {
+                    return dPrices[sellIndex] - dPrices[buyIndex];
+                }
+
+                // prepare next iteration. Determine which index to move forward
+
+                // price change on buy side greater than price change on sell side
+                Console.WriteLine("dBuy:" + (dPrices[buyIndex + 1] - dPrices[buyIndex]) );
+                Console.WriteLine("dSell:" +(dPrices[sellIndex] - dPrices[sellIndex - 1]));
+                if ((dPrices[buyIndex + 1 ] - dPrices[buyIndex]) > (dPrices[sellIndex] - dPrices[sellIndex - 1]))
+                {
+                    sellIndex--;
+                    sellTime = price_time[dPrices[sellIndex]].Max();
+                }
+                else
+                {
+                    buyIndex++;
+                    buyTime = price_time[dPrices[buyIndex]].Min();
+                }
+            }
+            */
+
+            return max;
         }
 
         private static void QuickSort<T>(T[] p_InArray, int p_beg, int p_end) where T : IComparable<T> {
