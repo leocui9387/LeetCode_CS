@@ -25,7 +25,7 @@ namespace LeetCode_CS
             // make unit test for last item case
             //price_array[price_array.Length-1] = price_array[0];
 
-            int[] price_array = {9,8,7,6,5,4,3,2,1 };   //{ 0,0,0,0,0,0,0,0};
+            int[] price_array = {1,2};//{ 7,1,5,3,6,4};//{9,8,7,6,5,4,3,2,1 };   //{ 0,0,0,0,0,0,0,0};
 
             Console.WriteLine("Max Profit:" + LC121_BestTime2BuyNSellStock.MaxProfit(price_array));
 
@@ -47,15 +47,8 @@ namespace LeetCode_CS
             t_0 = prices[1].CompareTo(prices[0]);
 
             // handle first point derivative
-            if (t_0 > 0)
-            {
                 min_price_time.Add(prices[0], new List<int>());
                 min_price_time[prices[0]].Add(0);
-            } else
-            {
-                max_price_time.Add(prices[0], new List<int>());
-                max_price_time[prices[0]].Add(0);
-            }
 
 
             for (int i = 1; i< prices.Length - 1 ; i++)
@@ -92,20 +85,15 @@ namespace LeetCode_CS
                 
             }
 
+            
             // handle last point derivative
-            if (t_1 > 0)
-            {
-                if (!min_price_time.ContainsKey(prices[prices.Length - 1]))
-                {
-                    min_price_time.Add(prices[prices.Length - 1], new List<int>());
-                }
-                min_price_time[prices[prices.Length - 1]].Add(prices.Length - 1);
-            }
-            else
+
+            if (!max_price_time.ContainsKey(prices[prices.Length - 1]))
             {
                 max_price_time.Add(prices[prices.Length - 1], new List<int>());
-                max_price_time[prices[prices.Length - 1]].Add(prices.Length - 1);
             }
+            max_price_time[prices[prices.Length - 1]].Add(prices.Length - 1);
+
 
             if (min_price_time.Count == 0 || max_price_time.Count == 0) return 0;
             
@@ -119,14 +107,17 @@ namespace LeetCode_CS
                                                                  orderby kvp.Key descending
                                                                  select kvp).ToList() ;
 
+            int max = 0;
             foreach (KeyValuePair<int, List<int>> kvp in buyPoints)
             {
-                foreach (KeyValuePair<int, List<int>> kvp_sales in potentialSales.Where(kvp_sales => (kvp_sales.Key > kvp.Key)))
+                foreach (KeyValuePair<int, List<int>> kvp_sales in potentialSales.Where(x => (x.Key > kvp.Key && kvp.Value.Min() < x.Value.Max())))
                 {
-                    if (max < (kvp.Key - dPrices[i]))
+                    if (max < (kvp_sales.Key - kvp.Key))
                     {
-                        max = (kvp.Key - dPrices[i]);
+                        max = kvp_sales.Key - kvp.Key;
                     }
+                    else break;
+                    
                 }
 
             }
@@ -136,7 +127,7 @@ namespace LeetCode_CS
 
 
 
-            return 0;
+            return max;
         }
 
         public static int MaxProfit_NonCalculus(int[] prices)
