@@ -33,20 +33,106 @@ namespace LeetCode_CS
 
         public static int MaxProfit(int[] prices)
         {
+
+            if (prices.Length < 2) return 0;
+
             // find max and min
 
-            Dictionary<int, int> max_price_time = new Dictionary<int, int>();
-            Dictionary<int, int> min_price_time = new Dictionary<int, int>();
+            Dictionary<int, List<int>> max_price_time = new Dictionary<int, List<int>>();
+            Dictionary<int, List<int>> min_price_time = new Dictionary<int, List<int>>();
 
+            int t_0 = 0;
+            int t_1 = 0;
+
+            t_0 = prices[1].CompareTo(prices[0]);
+
+            // handle first point derivative
+            if (t_0 > 0)
+            {
+                min_price_time.Add(prices[0], new List<int>());
+                min_price_time[prices[0]].Add(0);
+            } else
+            {
+                max_price_time.Add(prices[0], new List<int>());
+                max_price_time[prices[0]].Add(0);
+            }
 
 
             for (int i = 1; i< prices.Length - 1 ; i++)
             {
-                if ( (prices[i] - prices[i-1])  (prices[i + 1 ] - prices[i - 1]))
+                Console.WriteLine("price i+1: {0}|price i: {1}", prices[i + 1], prices[i]);
+                t_1 = prices[i+1].CompareTo(prices[i]);
+
+                if(t_0 < 0 && t_1 > 0)
                 {
+                    //min
+                    if (!min_price_time.ContainsKey(prices[i]))
+                    {
+                        min_price_time.Add(prices[i], new List<int>());
+                    }
+                    min_price_time[prices[i]].Add(i);
+                   
+
+                } else if (t_0 > 0 && t_1 < 0)
+                {
+                    //max
+                    if (!max_price_time.ContainsKey(prices[i]))
+                    {
+                        max_price_time.Add(prices[i], new List<int>());
+                    }
+                    max_price_time[prices[i]].Add(i);
 
                 }
+
+
+                if (t_1 != 0)
+                {
+                    t_0 = t_1;
+                }
+                
             }
+
+            // handle last point derivative
+            if (t_1 > 0)
+            {
+                if (!min_price_time.ContainsKey(prices[prices.Length - 1]))
+                {
+                    min_price_time.Add(prices[prices.Length - 1], new List<int>());
+                }
+                min_price_time[prices[prices.Length - 1]].Add(prices.Length - 1);
+            }
+            else
+            {
+                max_price_time.Add(prices[prices.Length - 1], new List<int>());
+                max_price_time[prices[prices.Length - 1]].Add(prices.Length - 1);
+            }
+
+            if (min_price_time.Count == 0 || max_price_time.Count == 0) return 0;
+            
+
+            List<KeyValuePair<int, List<int>>> buyPoints = (from kvp in min_price_time 
+                                                           orderby kvp.Key ascending
+                                                           select kvp).ToList();
+
+
+            List<KeyValuePair<int, List<int>>> potentialSales = (from kvp in max_price_time
+                                                                 orderby kvp.Key descending
+                                                                 select kvp).ToList() ;
+
+            foreach (KeyValuePair<int, List<int>> kvp in buyPoints)
+            {
+                foreach (KeyValuePair<int, List<int>> kvp_sales in potentialSales.Where(kvp_sales => (kvp_sales.Key > kvp.Key)))
+                {
+                    if (max < (kvp.Key - dPrices[i]))
+                    {
+                        max = (kvp.Key - dPrices[i]);
+                    }
+                }
+
+            }
+
+
+
 
 
 
