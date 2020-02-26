@@ -33,6 +33,31 @@ namespace LeetCode_CS
 
         public static int MaxProfit(int[] prices)
         {
+            // straight walk. based on miniums separating the array into blocks
+            if (prices.Length < 1) return 0;
+
+            int min = prices[0];
+            int max = prices[0];
+            int pi = 0;
+
+            for(int i=0; i < prices.Length; i++)
+            {
+                if (prices[i] > max) max = prices[i];
+                if (prices[i] < min)
+                {
+                    if (pi < (max - min)) pi = max - min;
+                    min = prices[i];
+                    max = prices[i];
+                }
+
+            }
+            if (pi < (max - min)) pi = max - min;
+            return pi;
+        }
+
+
+        public static int MaxProfit_withCalc(int[] prices)
+        {
 
             if (prices.Length < 2) return 0;
 
