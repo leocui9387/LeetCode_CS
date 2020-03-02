@@ -14,8 +14,8 @@ namespace LeetCode_CS
             //LC07_ReverseInteger.runner();
             //LC09_PalindromeNumber.runner();
             //LC13_Roman2Int.runner();
-            LC121_BestTime2BuyNSellStock.runner();
-
+            //LC121_BestTime2BuyNSellStock.runner();
+            LC1302_DeepestLeavesSum.runner();
 
 
         //Default
