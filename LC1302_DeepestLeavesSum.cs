@@ -14,19 +14,56 @@ namespace LeetCode_CS
             //root.Randomizer(0,7);
 
             root.left = new TreeNode(2);
-            root.left.left = new TreeNode(4);
-            root.left.right = new TreeNode(5);
-            root.left.left.left = new TreeNode(7);
-
             root.right = new TreeNode(3);
-            root.right.right = new TreeNode(6);
-            root.right.right.right = new TreeNode(8);
+             root.left.left = new TreeNode(4);
+             root.left.right = new TreeNode(5);
+             root.left.left.left = new TreeNode(7);
 
+
+             root.right.right = new TreeNode(6);
+             root.right.right.right = new TreeNode(8);
+             
             Console.WriteLine(deepestLeavesSum(root));
             
         }
 
         public static int deepestLeavesSum(TreeNode p_root)
+        {
+
+
+            List<TreeNode> parentTier = new List<TreeNode>();
+            List<TreeNode> childTier = new List<TreeNode>();
+
+            childTier.Add(p_root);
+            while (childTier.Count > 0)
+            {
+                parentTier = childTier;
+                childTier = new List<TreeNode>();
+
+                foreach(TreeNode n in parentTier)
+                {
+                    if (!(n.left is null))
+                    {
+                        childTier.Add(n.left);
+                    }
+                    if (!(n.right is null))
+                    {
+                        childTier.Add(n.right);
+                    }
+                }
+            }
+
+            int final = 0;
+            foreach( TreeNode n in parentTier)
+            {
+                final += n.val;
+            }
+
+            return final;
+
+        }
+
+        public static int deepestLeavesSum_depthVal(TreeNode p_root)
         {
             depthVal topdv = new depthVal(0, p_root.val);
 
@@ -34,8 +71,8 @@ namespace LeetCode_CS
             topdv.add(diver(p_root.right, topdv));
 
             return topdv.val;
-
         }
+
 
         public static depthVal diver(TreeNode p_node, depthVal p_parent)
         {
