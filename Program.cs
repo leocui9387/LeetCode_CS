@@ -15,8 +15,8 @@ namespace LeetCode_CS
             //LC09_PalindromeNumber.runner();
             //LC13_Roman2Int.runner();
             //LC121_BestTime2BuyNSellStock.runner();
-            LC1302_DeepestLeavesSum.runner();
-
+            //LC1302_DeepestLeavesSum.runner();
+            LC08_atoi.runner();
 
         //Default
             Console.WriteLine("|END");
