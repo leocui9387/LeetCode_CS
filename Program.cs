@@ -17,7 +17,9 @@ namespace LeetCode_CS
             //LC121_BestTime2BuyNSellStock.runner();
             //LC1302_DeepestLeavesSum.runner();
             //LC08_atoi.runner();
-            LC0088_MergeSortArray.runner();
+            //LC0088_MergeSortArray.runner();
+            LC0004_Median2SortedArrays.runner();
+
 
         //Default
             Console.WriteLine("|END");
