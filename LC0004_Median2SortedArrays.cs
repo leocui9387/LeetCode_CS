@@ -32,8 +32,6 @@ namespace LeetCode_CS
             }
 
 
-
-
             /*
             int[] test = new int[] { 1, 3, 5, 7, 9 };
             foreach (int i in test)
