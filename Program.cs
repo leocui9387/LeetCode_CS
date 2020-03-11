@@ -18,9 +18,9 @@ namespace LeetCode_CS
             //LC1302_DeepestLeavesSum.runner();
             //LC08_atoi.runner();
             //LC0088_MergeSortArray.runner();
-            LC0014_LongestComPrefix.runner();
-            
-            
+            //LC0014_LongestComPrefix.runner();
+
+            LC0015_3Sum.runner();
             
             
             
