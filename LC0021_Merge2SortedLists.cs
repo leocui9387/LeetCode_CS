@@ -48,30 +48,28 @@ namespace LeetCode_CS
 
         public static ListNode MergeTwoLists(ListNode l1, ListNode l2)
         {
-            ListNode diver1 = l1;
-            ListNode diver2 = l2;
+            ListNode[] diver = new ListNode[2];
+            diver[0] = l1;
+            diver[1] = l2;
 
+            int idx = 0;
             ListNode root = new ListNode(0);
             ListNode head = root;
             
-            while (diver1 != null || diver2 != null)
+            while (diver[0] != null || diver[1] != null)
             {
+                if (diver[0] is null) { idx = 1; }
+                else if (diver[1] is null) { idx = 0; }
+                else if (diver[0].val < diver[1].val) { idx = 0;}
+                else { idx = 1; }
 
-                if(diver2 is null || diver1.val < diver2.val)
-                {
-                    head.next = new ListNode(diver1.val);
-                    diver1 = diver1.next;
-                }
-                else
-                {
-                    head.next = new ListNode(diver2.val);
-                    diver2 = diver2.next;
-                }
+                head.next = new ListNode(diver[idx].val);
+                diver[idx] = diver[idx].next;
 
                 head = head.next;
-
             }
 
+            
             return root.next;
         }
         public class ListNode
