@@ -19,8 +19,9 @@ namespace LeetCode_CS
             //LC08_atoi.runner();
             //LC0088_MergeSortArray.runner();
             //LC0014_LongestComPrefix.runner();
-            LC0020_ValidParentheses.runner();
+            //LC0020_ValidParentheses.runner();
 
+            LC0021_Merge2SortedLists.runner();
 
 
 
