@@ -58,7 +58,7 @@ namespace LeetCode_CS
 
             Array.Sort(nums);
             int seekVal;
-
+            int counter = 0;
             Dictionary<String, threeTuple> result = new Dictionary<string, threeTuple>();
             threeTuple buff;
             // give each 2x2 triangle combination
@@ -72,21 +72,25 @@ namespace LeetCode_CS
                     Console.WriteLine("i:" + i + "|j:" + j);
                     Console.WriteLine("Num i:" + nums[i] + "|Num j:" + nums[j] + "|seek:" + seekVal);
 
-                    if (seekVal <= nums[i]) continue;
-                    
+                    if (seekVal < nums[i]) { continue; }
+
+
                     /* if seek value is out of the array's range
                      * TEST FOR MORE OPTIMIZATION
                      */
-                    if (nums[nums.Length - 1] < seekVal) j = i; //sortedNums[0] > seekVal ||
-
-                    // if seek value is a duplciate. will be saved for straight pass of sortedNums
-                    if (seekVal == nums[i] || seekVal == nums[j]) continue;
+                    if (nums[nums.Length - 1] < seekVal) { j = i; } //sortedNums[0] > seekVal ||
 
                     if (num_count.ContainsKey(seekVal))
                     {
+                        counter = num_count[seekVal];
+
+                        if (nums[i] == seekVal) { counter--; }
+                        if (nums[j] == seekVal) { counter--; }
+                        if (counter < 1) { continue; }
 
                         buff = new threeTuple(nums[i], nums[j], seekVal);
-                        if (!result.ContainsKey(buff.ToString())) result.Add(buff.ToString(), buff);
+
+                        if (!result.ContainsKey(buff.ToString())) { result.Add(buff.ToString(), buff); }
                     }
 
                 }

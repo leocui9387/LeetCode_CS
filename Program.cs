@@ -19,19 +19,20 @@ namespace LeetCode_CS
             //LC08_atoi.runner();
             //LC0088_MergeSortArray.runner();
             //LC0014_LongestComPrefix.runner();
+            LC0020_ValidParentheses.runner();
 
-            LC0015_3Sum.runner();
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+            // NEED IMPROVEMENT
+            //LC0015_3Sum.runner();
+
+            // DO LATER
             //LC0004_Median2SortedArrays.runner();
 
 
-        //Default
+            //Default
             Console.WriteLine("|END");
             Console.ReadLine();
 
