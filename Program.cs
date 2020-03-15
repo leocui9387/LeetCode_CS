@@ -23,8 +23,8 @@ namespace LeetCode_CS
             //LC0021_Merge2SortedLists.runner();
             //LC0026_RemoveDupfromSortedArr.runner();
             //LC0027_RemoveElement.runner();
-            LC0028_ImplementstrStr.runner();
-
+            //LC0028_ImplementstrStr.runner();
+            LC0035_SearchInsertPosition.runner();
 
 
 
