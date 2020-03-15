@@ -20,8 +20,12 @@ namespace LeetCode_CS
             //LC0088_MergeSortArray.runner();
             //LC0014_LongestComPrefix.runner();
             //LC0020_ValidParentheses.runner();
+            //LC0021_Merge2SortedLists.runner();
+            //LC0026_RemoveDupfromSortedArr.runner();
+            //LC0027_RemoveElement.runner();
+            LC0028_ImplementstrStr.runner();
 
-            LC0021_Merge2SortedLists.runner();
+
 
 
 
