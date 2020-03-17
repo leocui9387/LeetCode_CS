@@ -8,13 +8,10 @@ namespace LeetCode_CS
         public static void runner()
         {
             List<String[]> tc = new List<string[]>();
-
-            
+            tc.Add(new String[] { "mississippi", "issi" });
             tc.Add(new String[] {"hello", "ll" });
             tc.Add(new String[] { "aaaaa","bba" });
             tc.Add(new String[] {"a", "a" });
-            
-
             tc.Add(new String[] { "mississippi", "issip" });
 
             //tc.Add(new String[] { });
@@ -30,9 +27,73 @@ namespace LeetCode_CS
 
 
         }
-
         public static int StrStr(string haystack, string needle)
         {
+            //Boyer Moore
+            Dictionary<Char, int> skip = BM_skipper(needle);
+
+            int nL = needle.Length;
+            if (nL == 0) return 0;
+
+            int hL = haystack.Length;
+
+            int i, j;
+            
+
+            for (i = 0; i < (hL - nL) + 1 ;)
+            {
+
+                for (j= nL -1; j > -1 && needle[j] == haystack[i+j]; j--)
+                {
+                    Console.WriteLine("I:" + i + "|J:" + j+"|needle:"+ needle[j] + "|haystack:"+ haystack[i + j]);
+                }
+
+                if (j == -1) { return i; }
+                else if (skip.ContainsKey(haystack[i+j])) { i = i + nL - skip[needle[j]]; }
+                else { i++; }
+                Console.WriteLine("Skip:" + skip[needle[j]] + "|i" + i + "|j"+j);
+            }
+
+            return -1;
+
+        }
+
+        private static Dictionary<Char, int> BM_skipper(String p_pat)
+        {
+            // mismatch character algo
+            Dictionary<Char, int> pattern = new Dictionary<char, int>();
+
+            for(int i = p_pat.Length -1; i> -1; i--)
+            {
+                if (!pattern.ContainsKey(p_pat[i]))
+                {
+                    pattern.Add(p_pat[i], i);
+                }
+
+            }
+            printBMSkipper(pattern);
+            return pattern;
+
+        }
+
+        private static void printBMSkipper(Dictionary<Char, int> p_pat)
+        {
+            Console.WriteLine("START: BM Skipper********");
+
+            foreach(KeyValuePair<Char, int> kvp in p_pat)
+            {
+                Console.WriteLine("CHAR:" + kvp.Key + "|VAL:" + kvp.Value);
+
+            }
+
+            Console.WriteLine("END:*********************");
+        }
+
+
+        public static int StrStr_KMP(string haystack, string needle)
+        {
+
+            // KMP 
             int nL = needle.Length;
             if (nL == 0) return 0;
 
