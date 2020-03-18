@@ -28,14 +28,35 @@ namespace LeetCode_CS
             }
         }
 
-
-
-
-
-
-
-
         private static int SearchInsert(int[] nums, int target)
+        {
+            // optimized
+            int p_end = nums.Length - 1;
+
+            if (target <= nums[0]) return 0;
+            if (target > nums[p_end]) return p_end + 1;
+
+            int p_beg = 0;
+            int mid;
+
+            while (p_beg + 1 < p_end)
+            {
+                //Console.WriteLine("beg:" + p_beg + "|end:" + p_end);
+                mid = p_beg + (p_end - p_beg) / 2;
+
+                if (nums[mid] > target) { p_end = mid; }
+                else if (nums[mid] < target) { p_beg = mid; }
+                else { return mid; }
+
+            }
+            if (target <= nums[p_end]) { return p_end; }
+
+            return p_beg;
+
+
+        }
+
+        private static int SearchInsert_0(int[] nums, int target)
         {
             // binary search
             int mid;
@@ -66,18 +87,13 @@ namespace LeetCode_CS
                         break;
 
                 }
-
+                
                 if (p_end == p_beg + 1)
                 {
                     if (target <= nums[p_end]) { return p_end; }
                     else { return p_beg; }
-
                 }
-
-
-
             }
-
             return p_beg;
         }
     }

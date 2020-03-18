@@ -23,23 +23,19 @@ namespace LeetCode_CS
                 Console.WriteLine("RESULT:" + StrStr(s[0], s[1]));
                 Console.WriteLine("END-------");
             }
-
-
-
         }
         public static int StrStr(string haystack, string needle)
         {
             //Boyer Moore
-            Dictionary<Char, int> skip = BM_skipper(needle);
+            
 
             int nL = needle.Length;
             if (nL == 0) return 0;
-
+            Dictionary<Char, int> skip = BM_skipper(needle);
             int hL = haystack.Length;
 
             int i, j;
             
-
             for (i = 0; i < (hL - nL) + 1 ;)
             {
 
@@ -49,8 +45,9 @@ namespace LeetCode_CS
                 }
 
                 if (j == -1) { return i; }
-                else if (skip.ContainsKey(haystack[i+j])) { i = i + nL - skip[needle[j]]; }
-                else { i++; }
+                else if (!skip.ContainsKey(haystack[i + j])) { i++; }
+                else { i = i + nL - skip[needle[j]]; }
+                
                 Console.WriteLine("Skip:" + skip[needle[j]] + "|i" + i + "|j"+j);
             }
 
