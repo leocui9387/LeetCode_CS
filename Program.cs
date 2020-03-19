@@ -24,8 +24,8 @@ namespace LeetCode_CS
             //LC0026_RemoveDupfromSortedArr.runner();
             //LC0027_RemoveElement.runner();
             //LC0028_ImplementstrStr.runner();
-            LC0035_SearchInsertPosition.runner();
-
+            //LC0035_SearchInsertPosition.runner();
+            LC0038_CountNSay.runner();
 
 
 

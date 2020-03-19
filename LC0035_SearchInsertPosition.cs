@@ -30,7 +30,7 @@ namespace LeetCode_CS
 
         private static int SearchInsert(int[] nums, int target)
         {
-            // optimized
+            // optimized. very hard to get over 50% and it's mostly seems stoichastic
             int p_end = nums.Length - 1;
 
             if (target <= nums[0]) return 0;
