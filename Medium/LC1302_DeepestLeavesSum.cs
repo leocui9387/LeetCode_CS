@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace LeetCode_CS
+namespace LeetCode_CS.Medium
 {
     class LC1302_DeepestLeavesSum
     {

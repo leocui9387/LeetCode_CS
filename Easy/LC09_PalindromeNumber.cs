@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LeetCode_CS
+namespace LeetCode_CS.Easy
 {
     class LC09_PalindromeNumber
     {

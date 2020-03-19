@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LeetCode_CS
 {
-    class LC12_Int2Roman
+    class LC12_Int2Roman.Medium
     {
 
         public static void runner()

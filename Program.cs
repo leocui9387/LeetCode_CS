@@ -6,18 +6,8 @@ namespace LeetCode_CS
     {
         static void Main(string[] args)
         {
-            // LC01 Two Sum
-            //LC01_TwoSum.runner();
-            //LC02_AddTwoNumbers.runner();  
-            //LC03_LongestSubstringNoRepeats.runner();
 
-            //LC07_ReverseInteger.runner();
-            //LC09_PalindromeNumber.runner();
-            //LC13_Roman2Int.runner();
-            //LC121_BestTime2BuyNSellStock.runner();
-            //LC1302_DeepestLeavesSum.runner();
-            //LC08_atoi.runner();
-            //LC0088_MergeSortArray.runner();
+            // COMPLETED**EASY***************************************
             //LC0014_LongestComPrefix.runner();
             //LC0020_ValidParentheses.runner();
             //LC0021_Merge2SortedLists.runner();
@@ -25,7 +15,33 @@ namespace LeetCode_CS
             //LC0027_RemoveElement.runner();
             //LC0028_ImplementstrStr.runner();
             //LC0035_SearchInsertPosition.runner();
-            LC0038_CountNSay.runner();
+            //LC0038_CountNSay.runner();
+            //LC0088_MergeSortArray.runner();
+            //LC01_TwoSum.runner();
+            //LC07_ReverseInteger.runner();
+            //LC09_PalindromeNumber.runner();
+            //LC121_BestTime2BuyNSellStock.runner();
+            //LC13_Roman2Int.runner();
+
+
+            // COMPLETED**MED****************************************
+
+            //LC02_AddTwoNumbers.runner();  
+            //LC03_LongestSubstringNoRepeats.runner();
+            //LC08_atoi.runner();
+            //LC12_Int2Roman.runner();
+            //LC1302_DeepestLeavesSum.runner();
+
+            // COMPLETED**HARD***************************************
+
+            //WORK--BENCH--------------------------------------------
+
+            Easy.LC0053_MaxSubArray.runner();
+
+
+
+
+
 
 
 
@@ -48,4 +64,5 @@ namespace LeetCode_CS
 
 
     }
+
 }

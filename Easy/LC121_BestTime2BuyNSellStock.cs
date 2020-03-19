@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LeetCode_CS
+namespace LeetCode_CS.Easy
 {
     class LC121_BestTime2BuyNSellStock
     {

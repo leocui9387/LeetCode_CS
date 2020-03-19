@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LeetCode_CS
+namespace LeetCode_CS.Medium
 {
     class LC0015_3Sum
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace LeetCode_CS
+namespace LeetCode_CS.Easy
 {
     class LC01_TwoSum
     {
