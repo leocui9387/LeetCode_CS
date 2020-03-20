@@ -10,16 +10,17 @@ namespace LeetCode_CS.Easy
         public static void runner()
         {
             List<int[]> tc = new List<int[]>();
-
+            tc.Add(new int[] { -2,1 });
+            tc.Add(new int[] { -2, -1 });
+            tc.Add(new int[] { 1 });
+            tc.Add(new int[] { 1,2 });
+            tc.Add(new int[] { 2, -1, 1,1 });
             tc.Add(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
-
-
-
-            foreach(int[] test in tc)
+            
+            foreach (int[] test in tc)
             {
 
                 Console.WriteLine("START");
-
 
                 Console.WriteLine(MaxSubArray(test));
 
@@ -32,31 +33,34 @@ namespace LeetCode_CS.Easy
 
         public static int MaxSubArray(int[] nums)
         {
-            int subsec = 0;
-            int largest = nums[0];
+
+            int max = nums[0];
+            if (nums.Length == 1) return max;
+            int total = 0;
+            
+            int mPi = nums[0];
+
             foreach(int i in nums)
             {
+                total += i;
+                if (i > mPi) mPi = i;
 
-                if ( (subsec > -1) == (i > -1) )
+                if (total < 0 )
                 {
-                    subsec += i;
+                    max = total;
+                    total = 0;
+                    continue;
                 }
-                else
+
+                if (total > max)
                 {
-                    subsec = i;
+                    max = total;
+                    if (total > mPi) mPi = total;
                 }
-
-
-                subsec += i;
-                Console.WriteLine("i:" + i + "|sub:" + subsec);
-
-
-
-
 
             }
-
-            return subsec;
+            
+            return mPi;
         }
 
     }

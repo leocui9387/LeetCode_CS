@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System;
 
-namespace LeetCode_CS
+namespace LeetCode_CS.Medium
 {
-	public class LC08_atoi.Medium
+	public class LC08_atoi
 	{
 		public static void runner()
         {
