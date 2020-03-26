@@ -10,9 +10,9 @@ namespace LeetCode_CS.Medium
         {
             List<int[]> tc = new List<int[]>();
 
-            tc.Add(new int[] {8,10,14,0,13,10,9,9,11,11 });
+            tc.Add(new int[] { 8,10,14,0,13,10,9,9,11,11 });
             tc.Add(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 });
-            tc.Add(new int[] {1,2,1 });
+            tc.Add(new int[] { 1,2,1 });
 
 
             //tc.Add(new int[] { });
@@ -25,8 +25,12 @@ namespace LeetCode_CS.Medium
                 Console.WriteLine("END +++++++++++++++++++++++++");
             }
         }
+        public static int MaxArea(int[] height) {
 
-        public static int MaxArea(int[] height)
+
+            return 0;
+        }
+        public static int MaxArea_1(int[] height)
         {
 
             /* 
@@ -39,22 +43,22 @@ namespace LeetCode_CS.Medium
             int areaBuff;
             // max potential 
 
-            Dictionary<int, int> potential_AreaIndex = new Dictionary<int, int>();
-            Dictionary<int, int> retention_AreaIndex = new Dictionary<int, int>();
+            Dictionary<int, int> AreaIndex = new Dictionary<int, int>();
+            
 
             
             for (int i = hL - 1, j=0; i > -1; i--, j++)
             {
                 
-                areaBuff = -i * height[i];
-                if (!potential_AreaIndex.ContainsKey(areaBuff)) potential_AreaIndex.Add(areaBuff, i);
+                areaBuff = i * height[i];
+                if (!AreaIndex.ContainsKey(areaBuff)) AreaIndex.Add(areaBuff, i);
 
                 areaBuff = -(hL - 1 - j) * height[j];
-                if (!retention_AreaIndex.ContainsKey(areaBuff)) retention_AreaIndex.Add(areaBuff, j);
+                if (!AreaIndex.ContainsKey(areaBuff)) AreaIndex.Add(areaBuff, j);
             }
 
-            SortedList<int, int> pAI = new SortedList<int, int>(potential_AreaIndex);
-            SortedList<int, int> rAI = new SortedList<int, int>(retention_AreaIndex);
+            SortedList<int, int> AI = new SortedList<int, int>(AreaIndex);
+           
             // max retention
             /*
             for (int i = 0; i < hL; i++)
@@ -67,39 +71,40 @@ namespace LeetCode_CS.Medium
 
             Console.WriteLine("POTENTIAL");
 
-            foreach (KeyValuePair<int, int> kvp in pAI)
+            foreach (KeyValuePair<int, int> kvp in AI)
             {
                 Console.Write("KEY:" + kvp.Key + "|VAL:" + kvp.Value);
                 Console.WriteLine();
             }
+            /*
             Console.WriteLine("RETENTION");
             foreach (KeyValuePair<int, int> kvp in rAI)
             {
                 Console.Write("KEY:" + kvp.Key + "|VAL:" + kvp.Value);
                 Console.WriteLine();
             }
-
+            */
             // iterate through retention/potential based on which next step has the highest value
 
             int max = 0;
 
-            int r = 0, p = 0;
+            int r = 0, p = AreaIndex.Count - 1;
             int rIndex, pIndex;
 
             
-            while (-max > pAI.Keys[p] && -max > rAI.Keys[r])
+            while (max > -AI.Keys[p] && -max > AI.Keys[r])
             {
-                rIndex = rAI.Values[r];
-                pIndex = pAI.Values[p];
+                rIndex = AI.Values[r];
+                pIndex = AI.Values[p];
 
                 areaBuff = Math.Min(height[rIndex], height[pIndex]) * Math.Abs(pIndex - rIndex);
 
                 Console.WriteLine("p:" + p + "|r:" + r + "|area:" + areaBuff);
                 if (max < areaBuff) max = areaBuff;
 
-                if (rAI.Values[r + 1] < rAI.Values[r]) r++;
-                else if (rAI.Keys[r] < pAI.Keys[p]) r++;
-                else p++;
+                if (AI.Values[r + 1] < AI.Values[r]) r++;
+                else if (-AI.Keys[r] > AI.Keys[p]) r++;
+                else p--;
 
                 Console.WriteLine("p:" + p + "|r:" + r + "|area:" + areaBuff);
 
