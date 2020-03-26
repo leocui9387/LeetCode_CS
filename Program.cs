@@ -23,6 +23,7 @@ namespace LeetCode_CS
             //LC121_BestTime2BuyNSellStock.runner();
             //LC13_Roman2Int.runner();
             //Easy.LC0053_MaxSubArray.runner();
+            //Easy.LC0371_Sum2Int.runner();
 
             // COMPLETED**MED****************************************
 
@@ -45,8 +46,8 @@ namespace LeetCode_CS
             //WORK--BENCH--------------------------------------------
 
 
-            Easy.LC0371_Sum2Int.runner();
 
+            Easy.LC0191_NumOf1z.runner();
 
 
 
