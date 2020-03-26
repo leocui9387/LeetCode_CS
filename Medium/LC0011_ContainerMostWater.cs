@@ -46,8 +46,7 @@ namespace LeetCode_CS.Medium
 
                 //Console.WriteLine(area);
 
-
-                if (height[i] < height[i + 1] || height[i] < height[j]) { i++; }
+                if ( height[i] < height[j]) { i++; }
                 else { j--; }
 
                 //Console.WriteLine("i:" + i + "|j:" + j + "|area:" + area);
