@@ -9,10 +9,12 @@ namespace LeetCode_CS.Medium
         public static void runner()
         {
             List<int[]> tc = new List<int[]>();
-
+            tc.Add(new int[] { 1, 3, 2, 5, 25, 24, 5 });
+            tc.Add(new int[] { 2, 3, 4, 5, 18, 17, 6 });
             tc.Add(new int[] { 8,10,14,0,13,10,9,9,11,11 });
             tc.Add(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 });
             tc.Add(new int[] { 1,2,1 });
+            
 
 
             //tc.Add(new int[] { });
@@ -27,8 +29,32 @@ namespace LeetCode_CS.Medium
         }
         public static int MaxArea(int[] height) {
 
+            int i = 0;
+            int j = height.Length - 1;
 
-            return 0;
+            int area;
+            int max = 0;
+
+            do
+            {
+                area = (j - i);
+                if (height[i] < height[j]) area *= height[i];
+                else area *= height[j];
+
+
+                if (max < area) max = area;
+
+                //Console.WriteLine(area);
+
+
+                if (height[i] < height[i + 1] || height[i] < height[j]) { i++; }
+                else { j--; }
+
+                //Console.WriteLine("i:" + i + "|j:" + j + "|area:" + area);
+
+            } while (i < j);
+
+            return max;
         }
         public static int MaxArea_1(int[] height)
         {
