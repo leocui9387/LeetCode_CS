@@ -8,6 +8,7 @@ namespace LeetCode_CS
         {
 
             // COMPLETED**EASY***************************************
+
             //LC0014_LongestComPrefix.runner();
             //LC0020_ValidParentheses.runner();
             //LC0021_Merge2SortedLists.runner();
@@ -24,6 +25,8 @@ namespace LeetCode_CS
             //LC13_Roman2Int.runner();
             //Easy.LC0053_MaxSubArray.runner();
             //Easy.LC0371_Sum2Int.runner();
+            //Easy.LC0191_NumOf1z.runner();
+
 
             // COMPLETED**MED****************************************
 
@@ -47,7 +50,7 @@ namespace LeetCode_CS
 
 
 
-            Easy.LC0191_NumOf1z.runner();
+            Medium.LC0338_CountingBits.runner();
 
 
 
