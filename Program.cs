@@ -39,6 +39,7 @@ namespace LeetCode_CS
             //Medium.LC0152_MaxProdSubArr.runner();
             //Medium.LC0153_FindMinNRotatedSortedArray.runner();
             //Medium.LC0011_ContainerMostWater.runner();
+            //Medium.LC0338_CountingBits.runner();
 
             // COMPLETED**HARD***************************************
 
@@ -50,7 +51,7 @@ namespace LeetCode_CS
 
 
 
-            Medium.LC0338_CountingBits.runner();
+            Easy.LC0268_MissingNumber.runner();
 
 
 
