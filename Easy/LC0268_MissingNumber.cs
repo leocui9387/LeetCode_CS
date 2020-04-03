@@ -23,14 +23,25 @@ namespace LeetCode_CS.Easy
             }
 
         }
-        /*
-        public int MissingNumber(int[] nums)
-        {
-
-        }
-        */
+        
         public static int MissingNumber(int[] nums)
         {
+            //XOR
+            int nL = nums.Length;
+            int final = nL;
+
+            for (int i=0; i< nL; i++) 
+            { 
+                final ^= i ^ nums[i]; 
+            }
+
+
+            return final;
+        }
+        
+        public static int MissingNumber1(int[] nums)
+        {
+            //gauss
             int nL = nums.Length;
             int total = 0;
 

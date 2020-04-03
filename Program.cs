@@ -14,7 +14,7 @@ namespace LeetCode_CS
             //LC0021_Merge2SortedLists.runner();
             //LC0026_RemoveDupfromSortedArr.runner();
             //LC0027_RemoveElement.runner();
-            //LC0028_ImplementstrStr.runner();
+            //Easy.LC0028_ImplementstrStr.runner();
             //LC0035_SearchInsertPosition.runner();
             //LC0038_CountNSay.runner();
             //LC0088_MergeSortArray.runner();
@@ -26,6 +26,8 @@ namespace LeetCode_CS
             //Easy.LC0053_MaxSubArray.runner();
             //Easy.LC0371_Sum2Int.runner();
             //Easy.LC0191_NumOf1z.runner();
+            //Easy.LC0268_MissingNumber.runner();
+            //Easy.LC0190_ReverseBits.runner();
 
 
             // COMPLETED**MED****************************************
@@ -51,7 +53,7 @@ namespace LeetCode_CS
 
 
 
-            Easy.LC0268_MissingNumber.runner();
+
 
 
 

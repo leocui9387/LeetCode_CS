@@ -20,7 +20,7 @@ namespace LeetCode_CS.Easy
             {
                 Console.WriteLine("START|H:" + s[0] + "|N:" + s[1]);
                 //Console.WriteLine("DFA:" + kmp_dfa(s[1]).ToString());
-                Console.WriteLine("RESULT:" + StrStr(s[0], s[1]));
+                Console.WriteLine("RESULT:" + StrStr_KMP(s[0], s[1]));
                 Console.WriteLine("END-------");
             }
         }
@@ -122,27 +122,20 @@ namespace LeetCode_CS.Easy
             int nL = p_needle.Length;
             if (nL == 0) return null;
             Dictionary<Char, int[]> dfa = new Dictionary<char, int[]>();
-            //Console.WriteLine("INPUT:" + p_needle);
-            int i, j;
-            for (i = 0, j = 0; i < nL; i++)
+
+            dfa.Add(p_needle[0], new int[nL]);
+            dfa[p_needle[0]][0] = 1;
+            
+            for (int i = 1, j = 0; i < nL; i++)
             {
                 if (!dfa.ContainsKey(p_needle[i])) { dfa.Add(p_needle[i], new int[nL]); }
+                
+                foreach (KeyValuePair<Char, int[]> kvp in dfa)
+                    kvp.Value[i] = dfa[kvp.Key][j];
+
                 dfa[p_needle[i]][i] = i + 1;
-
-                if (i != 0)
-                {
-                    foreach (KeyValuePair<Char, int[]> kvp in dfa)
-                    {
-                        if(kvp.Value[i] == 0)
-                            kvp.Value[i] = dfa[kvp.Key][j];
-                    }
-
-                    j = dfa[p_needle[i]][j];
-                }
+                j = dfa[p_needle[i]][j];
                 
-                
-
-
             }
 
             printDFA(dfa);
