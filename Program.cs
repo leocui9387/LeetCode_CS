@@ -52,7 +52,7 @@ namespace LeetCode_CS
             //WORK--BENCH--------------------------------------------
 
 
-
+            Easy.LC0070_ClimbingStairs.runner();
 
 
 
