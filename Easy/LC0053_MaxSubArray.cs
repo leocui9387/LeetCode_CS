@@ -10,11 +10,12 @@ namespace LeetCode_CS.Easy
         public static void runner()
         {
             List<int[]> tc = new List<int[]>();
-            tc.Add(new int[] { -2,1 });
+            /*tc.Add(new int[] { -2,1 });
             tc.Add(new int[] { -2, -1 });
             tc.Add(new int[] { 1 });
             tc.Add(new int[] { 1,2 });
-            tc.Add(new int[] { 2, -1, 1,1 });
+            tc.Add(new int[] { 2, -1, 1,1 });*/
+
             tc.Add(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 });
             
             foreach (int[] test in tc)
@@ -30,8 +31,26 @@ namespace LeetCode_CS.Easy
 
 
         }
-
         public static int MaxSubArray(int[] nums)
+        {
+            //dynamic programming based solution
+
+            int max = nums[0];
+
+            if (nums.Length == 1) return max;
+
+            int buff = 0;
+            foreach (int i in nums)
+            {
+                buff = Math.Max(i, i + buff);
+                max = Math.Max(max, buff);
+            }
+
+            return max;
+        }
+
+
+        public static int MaxSubArray_1(int[] nums)
         {
 
             int max = nums[0];

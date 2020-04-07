@@ -9,12 +9,10 @@ namespace LeetCode_CS
 
         public static void PrintIterable<T>(IEnumerable<T> p_arr)
         {
-
-            Console.WriteLine("START");
             Console.Write("Array:");
             foreach (T i in p_arr) { Console.Write(i.ToString() + ","); }
             Console.WriteLine();
-            Console.WriteLine("END");
+
         }
 
     }

@@ -28,7 +28,8 @@ namespace LeetCode_CS
             //Easy.LC0191_NumOf1z.runner();
             //Easy.LC0268_MissingNumber.runner();
             //Easy.LC0190_ReverseBits.runner();
-
+            //Easy.LC0070_ClimbingStairs.runner();
+            //Easy.LC0392_IsSubsq.runner();
 
             // COMPLETED**MED****************************************
 
@@ -51,8 +52,8 @@ namespace LeetCode_CS
 
             //WORK--BENCH--------------------------------------------
 
+            Misc.DynamicProgramming.CodeChef.min_steps_to_one();
 
-            Easy.LC0070_ClimbingStairs.runner();
 
 
 
@@ -63,7 +64,7 @@ namespace LeetCode_CS
 
             // NEED IMPROVEMENT
             //LC0015_3Sum.runner();
-
+            //Medium.LC0322_CoinChange.runner();
 
 
             // DO LATER
