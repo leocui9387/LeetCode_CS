@@ -26,22 +26,22 @@ namespace LeetCode_CS.Misc.DynamicProgramming
             // for positiv int n fewest number of steps to 1 given 3 operations:
             // -1, /2 if even, /3 if divisible by 3
 
-            int[] dp = new int[n + 1];
-            
+            int[] memo = new int[n + 1];
 
-            dp[1] = 0;  // trivial case
+
+            memo[1] = 0;  // trivial case
 
             for (int i = 2; i <= n; i++)
-
             {
 
-                dp[i] = 1 + dp[i - 1];
+                memo[i] = 1 + memo[i - 1];
 
-                if (i % 2 == 0) dp[i] = Math.Min(dp[i], 1 + dp[i / 2]);
-                if (i % 3 == 0) dp[i] = Math.Min(dp[i], 1 + dp[i / 3]);
+                if (i % 2 == 0) memo[i] = Math.Min(memo[i], 1 + memo[i / 2]);
+                if (i % 3 == 0) memo[i] = Math.Min(memo[i], 1 + memo[i / 3]);
 
             }
-            return dp[n];
+
+            return memo[n];
         }
 
 
