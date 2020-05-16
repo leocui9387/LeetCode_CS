@@ -73,9 +73,9 @@ namespace LeetCode_CS
 
 
             // NEED IMPROVEMENT
-            //LC0015_3Sum.runner();
-            //Medium.LC0322_CoinChange.runner();
-
+            // LC0015_3Sum.runner();
+            // Medium.LC0322_CoinChange.runner();
+            // Medium.LC0300_LongestIncreasingSubsequence.runner();
 
             // DO LATER
             //LC0004_Median2SortedArrays.runner();
