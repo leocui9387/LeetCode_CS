@@ -8,6 +8,10 @@ namespace LeetCode_CS.Medium
     {
         public int Rob(int[] nums)
         {
+            // forward prop - 
+
+
+
 
             return 0;
         }
