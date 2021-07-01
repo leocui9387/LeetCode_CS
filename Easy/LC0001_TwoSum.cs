@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace LeetCode_CS.Easy
 {
-    class LC01_TwoSum
+    class LC0001_TwoSum
     {
         public static void runner()
         {
 
             int[] numz = new int[] { 6, 8, 2, 1, 3, 5, 4, 9, -1, 10, -3 };
 
-            LC01_TwoSum.QuickSort tester = new LC01_TwoSum.QuickSort();
+            LC0001_TwoSum.QuickSort tester = new LC0001_TwoSum.QuickSort();
 
             tester.TwoSum(numz, 3);
 

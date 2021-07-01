@@ -3,7 +3,7 @@ using System;
 
 namespace LeetCode_CS.Medium
 {
-	public class LC08_atoi
+	public class LC0008_atoi
 	{
 		public static void runner()
         {

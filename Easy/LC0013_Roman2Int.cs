@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LeetCode_CS.Easy
 {
-    class LC13_Roman2Int
+    class LC0013_Roman2Int
     {
         public static void runner()
         {
@@ -22,7 +22,7 @@ namespace LeetCode_CS.Easy
 
             foreach(String tCase in testCases)
             {
-                Console.WriteLine(   LC13_Roman2Int.RomanToInt(tCase));
+                Console.WriteLine(   LC0013_Roman2Int.RomanToInt(tCase));
             }
 
         }

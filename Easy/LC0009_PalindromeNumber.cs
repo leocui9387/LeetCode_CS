@@ -2,7 +2,7 @@
 
 namespace LeetCode_CS.Easy
 {
-    class LC09_PalindromeNumber
+    class LC0009_PalindromeNumber
     {
         public static void runner()
         {
@@ -11,7 +11,7 @@ namespace LeetCode_CS.Easy
 
             foreach (int i in tester)
             {
-                Console.WriteLine("number:" + i + "|" + LC09_PalindromeNumber.IsPalindrome(i));
+                Console.WriteLine("number:" + i + "|" + LC0009_PalindromeNumber.IsPalindrome(i));
             }
             Console.WriteLine();
         }

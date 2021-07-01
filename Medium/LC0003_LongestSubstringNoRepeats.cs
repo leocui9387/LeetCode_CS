@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LeetCode_CS.Medium
 {
-    class LC03_LongestSubstringNoRepeats
+    class LC0003_LongestSubstringNoRepeats
     {
         public static void runner()
         {
@@ -12,7 +12,7 @@ namespace LeetCode_CS.Medium
 
             foreach (String s in testData)
             {
-                Console.WriteLine("String:" + s + "|" + LC03_LongestSubstringNoRepeats.LengthOfLongestSubstring(s));
+                Console.WriteLine("String:" + s + "|" + LC0003_LongestSubstringNoRepeats.LengthOfLongestSubstring(s));
             }
         }
         public static int LengthOfLongestSubstring(String s)

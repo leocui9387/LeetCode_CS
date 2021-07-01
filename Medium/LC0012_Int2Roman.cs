@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LeetCode_CS.Medium
 {
-    class LC12_Int2Roman
+    class LC0012_Int2Roman
     {
 
         public static void runner()
@@ -22,7 +22,7 @@ namespace LeetCode_CS.Medium
 
             foreach (int tCase in testCases_int)
             {
-                Console.WriteLine(LC12_Int2Roman.IntToRoman(tCase));
+                Console.WriteLine(LC0012_Int2Roman.IntToRoman(tCase));
             }
 
         }

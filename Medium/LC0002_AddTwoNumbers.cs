@@ -4,13 +4,13 @@ using System.Text;
 
 namespace LeetCode_CS.Medium
 {
-    public class LC02_AddTwoNumbers
+    public class LC0002_AddTwoNumbers
     {
         public static void runner()
         {
             Console.WriteLine("LEO");
 
-            LC02_AddTwoNumbers test = new LC02_AddTwoNumbers();
+            LC0002_AddTwoNumbers test = new LC0002_AddTwoNumbers();
             ListNode number1 = test.LN_Generator("342");
             Console.WriteLine(number1.ToString());
 

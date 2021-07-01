@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace LeetCode_CS.Easy
 {
-    class LC121_BestTime2BuyNSellStock
+    class LC0121_BestTime2BuyNSellStock
     {
         public static void runner()
         {
@@ -27,7 +27,7 @@ namespace LeetCode_CS.Easy
 
             int[] price_array = {1,2};//{ 7,1,5,3,6,4};//{9,8,7,6,5,4,3,2,1 };   //{ 0,0,0,0,0,0,0,0};
 
-            Console.WriteLine("Max Profit:" + LC121_BestTime2BuyNSellStock.MaxProfit(price_array));
+            Console.WriteLine("Max Profit:" + LC0121_BestTime2BuyNSellStock.MaxProfit(price_array));
 
         }
 
